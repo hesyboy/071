@@ -1,0 +1,34 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+
+@layer base {
+
+    @font-face {
+        font-family: Vazir;
+        src: url('../../public/assets/font/VazirRegular.ttf') format('truetype');
+    }
+
+
+
+    body{
+        font-family: Vazir!important;
+    }
+    select {
+        background-position: left 0.5rem center !important;
+
+    }
+    [x-cloak] { display: none !important; }
+
+    .swiper-slide {
+        height: auto !important;
+    }
+
+    .ck.ck-content.ck-editor__editable {
+        min-height: 200px!important;
+    }
+
+};
