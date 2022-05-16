@@ -17,7 +17,7 @@ class CreateAreasTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->foreignId('city_id')->constrained('acities')->cascadeOnDelete();
+            $table->foreignId('city_id')->constrained('cities')->cascadeOnDelete();
             $table->unsignedTinyInteger('status')->default(1)->comment('0=>deactive,1=>active');
             $table->timestamps();
         });

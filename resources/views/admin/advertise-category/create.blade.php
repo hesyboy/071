@@ -13,7 +13,7 @@
                     <div class="text-lg font-bold py-2">ثبت دسته بندی جدید</div>
                 </div>
                 <hr>
-                <div class="mt-3">.
+                <div class="mt-3">
                     <form action="{{route('admin.advertise-categories.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="flex flex-col gap-5">
