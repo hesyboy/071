@@ -22,12 +22,16 @@ class AdvertiseCategoryController extends Controller
     public function store(Request $request){
         $validated=$request->validate([
             'title' => ['required','max:25'],
+            'icon' => ['required','image','mimes:png,jpg','max:2048'],
         ]);
-        $file=$request->file('icon');
-        $fileExtention=$request->file('icon')->getClientOriginalExtension();
-        $fileName=rand(1,1000).time().'.'.$fileExtention;
-        $file->storeAs('public/adv-cat-icon',$fileName);
-        // dd($file);
+
+        if($request->hasFile('icon')){
+            $file=$request->file('icon');
+            $fileExtention=$request->file('icon')->getClientOriginalExtension();
+            $fileName=rand(1,1000).time().'.'.$fileExtention;
+            $file->storeAs('public/adv-cat-icon',$fileName);
+        }
+
         $advertiseCategory=AdvertiseCategory::create([
             'title' => $request->title,
             'description' => $request->description,

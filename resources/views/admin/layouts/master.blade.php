@@ -23,8 +23,10 @@
                         @include('admin.layouts.sidebar')
                     </div>
 
-                    <div class="w-full md:w-4/5 p-5 shadow rounded-xl bg-white">
-                        @yield('body')
+                    <div class="w-full md:w-4/5 ">
+                        <div class="p-5 shadow rounded-xl bg-white max-h-max ">
+                            @yield('body')
+                        </div>
                     </div>
 
             </div>

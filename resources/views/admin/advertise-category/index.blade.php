@@ -39,7 +39,7 @@
             <div>
                 @if (session('msg'))
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-3">
-                    <div class="p-4 bg-green-600 border-b border-gray-200 text-white">
+                    <div class="p-4 bg-yellow-600 border-b border-gray-200 text-white">
                         {{session('msg')}}
                     </div>
                 </div>
