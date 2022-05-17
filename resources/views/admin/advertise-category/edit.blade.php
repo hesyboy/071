@@ -28,7 +28,7 @@
                 </div> --}}
                 {{-- <hr> --}}
                 <div class="mt-3">
-                    <form action="{{route('admin.advertise-categories.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('admin.advertise-categories.update',$advertisecategory)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="w-full flex flex-col gap-3">
 
@@ -43,7 +43,7 @@
                                         @enderror
                                     </div>
                                     <input name="title" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400"
-                                     type="text" value="{{old('title')}}">
+                                     type="text" value="{{old('title',$advertisecategory->title)}}">
                                 </div>
 
                             </div>
@@ -65,7 +65,7 @@
                                     <select name="parent_id" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400">
                                         <option value="">دسته اصلی </option>
                                         @foreach ($advertiseCategories as $item)
-                                            <option value={{$item->id}}>{{$item->title}} </option>
+                                            <option value={{$item->id}} @if($item->id==$advertisecategory->parent_id) selected @endif>{{$item->title}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -78,11 +78,11 @@
                                         @enderror
                                     </div>
                                      <select name="menu-order" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                        <option value="1" @if($advertisecategory->menu_order == '1') selected @endif>1</option>
+                                        <option value="2" @if($advertisecategory->menu_order == '2') selected @endif>2</option>
+                                        <option value="3" @if($advertisecategory->menu_order == '3') selected @endif>3</option>
+                                        <option value="4" @if($advertisecategory->menu_order == '4') selected @endif>4</option>
+                                        <option value="5" @if($advertisecategory->menu_order == '5') selected @endif>5</option>
                                     </select>
                                 </div>
 
@@ -99,8 +99,8 @@
                                         @enderror
                                     </div>
                                     <select name="status" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400">
-                                        <option value="1">فعال</option>
-                                        <option value="0">غیر فعال </option>
+                                        <option value="1" @if($advertisecategory->status == '1') selected @endif>فعال</option>
+                                        <option value="0" @if($advertisecategory->status == '0') selected @endif>غیر فعال </option>
                                     </select>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
 
                                 <div class="flex justify-between gap-3 items-center">
                                     <div class="mt-2">
-                                        <button class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded hover:bg-firooze-300 ">افزودن دسته جدید </button>
+                                        <button class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded hover:bg-firooze-300 ">ثبت تغییرات دسته  </button>
                                     </div>
                                     <div class="mt-2">
                                         <a href="{{route('admin.advertise-categories.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded hover:bg-firooze-300 ">انصراف </a>

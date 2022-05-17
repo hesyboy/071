@@ -14,7 +14,7 @@
                     <div class="flex gap-3 items-center">
 
                         <div>
-                            <a class="text-sm text-center py-2 px-4 bg-green-700 text-white rounded-lg hover:bg-green-800"
+                            <a class="text-sm text-center py-2 px-4 bg-green-700 text-white rounded hover:bg-green-800"
                          href="{{route('admin.advertise-categories.create')}}">افزودن دسته بندی جدید</a>
                         </div>
 
@@ -111,12 +111,12 @@
                                 <td class="py-3 px-2">
 
                                         @if($item->status==1)
-                                            <span class="bg-green-200 rounded-lg px-2 text-green-600 text-xs">
+                                            <span class="bg-green-200 rounded px-2 text-green-600 text-xs">
                                                 فعال
                                             </span>
 
                                         @else
-                                            <span class="bg-red-200 rounded-lg px-2 text-red-600 text-xs">
+                                            <span class="bg-red-200 rounded px-2 text-red-600 text-xs">
                                                 غیر فعال
                                             </span>
                                         @endif
@@ -127,13 +127,13 @@
                                     <div class="flex items-center">
 
                                         <div class="rounded-lg py-1 px-2 text-black text-sm">
-                                            <a href="{{route('admin.advertise-categories.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 ">تغییرات</a>
+                                            <a href="{{route('admin.advertise-categories.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 ">تغییرات</a>
                                         </div>
 
 
 
                                         <div x-data="{'popup': false}">
-                                            <a @click="popup=true" class=" text-xs text-center py-1 px-2 bg-red-700 text-white rounded-lg hover:bg-red-800 "
+                                            <a @click="popup=true" class=" text-xs text-center py-1 px-2 bg-red-700 text-white rounded hover:bg-red-800 "
                                              href="#">
                                              حذف
                                             </a>
@@ -152,9 +152,9 @@
                                                                 <form action="{{route('admin.advertise-categories.delete',$item)}}" method="post">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <a  @click="popup=false" class="cursor-pointer text-sm text-center py-2 px-4 bg-red-700 text-white rounded-lg hover:bg-red-600 ">خیر</a>
+                                                                    <a  @click="popup=false" class="cursor-pointer text-sm text-center py-2 px-4 bg-red-700 text-white rounded hover:bg-red-600 ">خیر</a>
                                                                     <button type="submit"
-                                                                    class="text-sm text-center py-2 px-4 bg-red-700 text-white rounded-lg hover:bg-red-600 ">بله</button>
+                                                                    class="text-sm text-center py-2 px-4 bg-red-700 text-white rounded hover:bg-red-600 ">بله</button>
                                                                 </form>
                                                              </div>
                                                         </div>
