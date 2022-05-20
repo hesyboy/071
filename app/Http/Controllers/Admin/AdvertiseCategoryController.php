@@ -22,24 +22,30 @@ class AdvertiseCategoryController extends Controller
     public function store(Request $request){
         $validated=$request->validate([
             'title' => ['required','max:25'],
-            'icon' => ['required','image','mimes:png,jpg','max:2048'],
+            'icon' => ['image','mimes:png,jpg','max:2048'],
         ]);
 
+
+
+
+        $advertiseCategory=AdvertiseCategory::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'menu_order' => $request->menu_order,
+            'parent_id' => $request->parent_id,
+            'status' => $request->status,
+        ]);
         if($request->hasFile('icon')){
             $file=$request->file('icon');
             $fileExtention=$request->file('icon')->getClientOriginalExtension();
             $fileName=rand(1,1000).time().'.'.$fileExtention;
             $file->storeAs('public/adv-cat-icon',$fileName);
+            $advertiseCategory->icon='storage/adv-cat-icon/'.$fileName;
+            $advertiseCategory->save();
         }
-
-        $advertiseCategory=AdvertiseCategory::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'icon' => 'storage/adv-cat-icon/'.$fileName,
-            'parent_id' => $request->parent_id,
-            'status' => $request->status,
-        ]);
-        return redirect()->route('admin.advertise-categories.index')->with('msg','دسته جدید با موفقیت ساخته شد');
+        return redirect()->route('admin.advertise.categories.index')->with('msg','دسته جدید با موفقیت ساخته شد');
     }
 
     public function edit(AdvertiseCategory $advertisecategory){
@@ -48,8 +54,30 @@ class AdvertiseCategoryController extends Controller
     }
 
 
+    public function update(AdvertiseCategory $advertisecategory,Request $request){
+        $advertisecategory->title=$request->title;
+        $advertisecategory->description=$request->description;
+        $advertisecategory->seo_title=$request->seo_title;
+        $advertisecategory->seo_description=$request->seo_description;
+        $advertisecategory->menu_order=$request->menu_order;
+        $advertisecategory->parent_id=$request->parent_id;
+        $advertisecategory->status=$request->status;
+
+        if($request->hasFile('icon')){
+            $file=$request->file('icon');
+            $fileExtention=$request->file('icon')->getClientOriginalExtension();
+            $fileName=rand(1,1000).time().'.'.$fileExtention;
+            $file->storeAs('public/adv-cat-icon',$fileName);
+            $advertisecategory->icon='storage/adv-cat-icon/'.$fileName;
+        }
+
+        $advertisecategory->save();
+        return redirect()->route('admin.advertise.categories.index')->with('msg','تغییرات دسته با موفقیت ساخته شد');
+    }
+
+
     public function delete(AdvertiseCategory $advertisecategory){
         $advertisecategory->delete();
-        return redirect()->route('admin.advertise-categories.index')->with('msg','دسته بندی مورد نظر با موفقیت حذف شد');
+        return redirect()->route('admin.advertise.categories.index')->with('msg','دسته بندی مورد نظر با موفقیت حذف شد');
     }
 }

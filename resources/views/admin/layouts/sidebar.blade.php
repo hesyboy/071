@@ -95,7 +95,7 @@
 
             {{-- آگهی ها --}}
             <li class="flex flex-col gap-3"
-                @if (request()->routeIs('admin.advertise-categories.*'))
+                @if (request()->routeIs('admin.advertise.*'))
                     x-data="{open: true}"
                 @else
                     x-data="{open: false}"
@@ -124,20 +124,20 @@
                         "> آگهی ها   </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.advertise-categories.index')}}" class="w-full text-sm text-center p-2 font-bold rounded-lg  text-black
-                        @if (request()->routeIs('admin.advertise-categories.index'))
-                            bg-yellow-500
+                        <a href="{{route('admin.advertise.categories.index')}}" class="w-full text-sm text-center p-2 rounded-lg
+                        @if (request()->routeIs('admin.advertise.categories.*'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
                         ">دسته بندی های آگهی   </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.users.create')}}" class="w-full text-sm text-center p-2 font-bold rounded-lg  text-black
-                        @if (request()->routeIs('admin.users.create'))
-                            bg-yellow-500
+                        <a href="{{route('admin.advertise.cities.index')}}" class="w-full text-sm text-center p-2 rounded-lg
+                        @if (request()->routeIs('admin.advertise.cities.*'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
                         ">شهرها  </a>
                     </li>

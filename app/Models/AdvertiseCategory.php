@@ -16,6 +16,9 @@ class AdvertiseCategory extends Model
         'title',
         'description',
         'icon',
+        'seo_title',
+        'seo_description',
+        'menu_order',
         'parent_id',
         'status'
     ];
