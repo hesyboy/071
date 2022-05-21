@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminPanelController;
+use App\Http\Controllers\Admin\AdvertiseAreaController;
 use App\Http\Controllers\Admin\AdvertiseCategoryController;
 use App\Http\Controllers\Admin\AdvertiseCityController;
 use App\Http\Controllers\Admin\UserController;
@@ -72,7 +73,7 @@ Route::prefix('admin')->namespace('admin')->group(function(){
         Route::delete('/delete/{advertisecategory}',[AdvertiseCategoryController::class,'delete'])->name('admin.advertise.categories.delete');
     });
 
-        // |-----------------------
+    // |-----------------------
     // | Advertise Cities Routes
     // |-----------------------
 
@@ -83,6 +84,20 @@ Route::prefix('admin')->namespace('admin')->group(function(){
         Route::get('/edit/{city}',[AdvertiseCityController::class,'edit'])->name('admin.advertise.cities.edit');
         Route::put('/update/{city}',[AdvertiseCityController::class,'update'])->name('admin.advertise.cities.update');
         Route::delete('/delete/{city}',[AdvertiseCityController::class,'delete'])->name('admin.advertise.cities.delete');
+    });
+
+
+    // |-----------------------
+    // | Advertise areas Routes
+    // |-----------------------
+
+    Route::prefix('areas')->group(function(){
+        Route::get('/',[AdvertiseAreaController::class,'index'])->name('admin.advertise.areas.index');
+        Route::get('/create',[AdvertiseAreaController::class,'create'])->name('admin.advertise.areas.create');
+        Route::post('/store',[AdvertiseAreaController::class,'store'])->name('admin.advertise.areas.store');
+        Route::get('/edit/{area}',[AdvertiseAreaController::class,'edit'])->name('admin.advertise.areas.edit');
+        Route::put('/update/{area}',[AdvertiseAreaController::class,'update'])->name('admin.advertise.areas.update');
+        Route::delete('/delete/{area}',[AdvertiseAreaController::class,'delete'])->name('admin.advertise.areas.delete');
     });
 
 });

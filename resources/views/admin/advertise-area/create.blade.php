@@ -9,16 +9,16 @@
     <div class="flex gap-3 items-center justify-between">
         <div class="flex gap-3 items-center">
             <div class="">
-                <img class="h-16" src="{{asset('images/edit.svg')}}" alt="">
+                <img class="h-16" src="{{asset('images/add.svg')}}" alt="">
             </div>
             <div class="py-2 text-gray-800">
                 <div class="text-xl font-bold">
-                    ثبت تغییرات شهر
+                    ثبت محله جدید
                 </div>
             </div>
         </div>
         <div>
-            <a href="{{route('admin.advertise.cities.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded hover:bg-firooze-300 ">بازگشت به شهرها   </a>
+            <a href="{{route('admin.advertise.areas.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded hover:bg-firooze-300 ">بازگشت به محله ها   </a>
         </div>
     </div>
 </div>
@@ -33,9 +33,8 @@
             <div class="w-full">
 
                 <div class="mt-3">
-                    <form action="{{route('admin.advertise.cities.update',$city)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('admin.advertise.areas.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @method('put')
                         <div class="w-full flex flex-col gap-5">
 
 
@@ -44,13 +43,27 @@
                                 <div class="flex w-full flex-col md:flex-row gap-3">
                                     <div class="w-full md:w-6/12">
                                         <div class="text-sm">
-                                            <span>عنوان شهر   </span>
+                                            <span>عنوان محله   </span>
                                             @error('name')
                                             <span class="block bg-red-500 rounded p-1 text-white text-xs">{{$message}}</span>
                                             @enderror
                                         </div>
                                         <input name="name" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400"
-                                         type="text" value="{{old('name',$city->name)}}">
+                                         type="text" value="{{old('name')}}">
+                                    </div>
+
+                                    <div class="w-full md:w-6/12">
+                                        <div class="text-sm">
+                                            <span>انتخاب شهر </span>
+                                            @error('city_id')
+                                            <span class="block bg-red-500 rounded p-1 text-white text-xs">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                        <select name="city_id" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400">
+                                            @foreach ($cities as $item)
+                                                <option value={{$item->id}}>{{$item->name}} </option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                 </div>
@@ -71,8 +84,8 @@
                                             @enderror
                                         </div>
                                         <select name="status" class="px-2 py-2 my-2 rounded text-sm w-full bg-gray-50 border-gray-400">
-                                            <option value="1" @if($city->status==1) selected @endif>فعال</option>
-                                            <option value="0" @if($city->status==0) selected @endif>غیر فعال </option>
+                                            <option value="1">فعال</option>
+                                            <option value="0">غیر فعال </option>
                                         </select>
                                     </div>
 
@@ -96,10 +109,10 @@
 
                                 <div class="flex justify-end gap-3 items-center mt-2">
                                     <div class="mt-2">
-                                        <button type="submit" class=" text-sm text-center py-2 px-4 bg-orange-500 hover:bg-orange-600 text-gray-100 rounded  ">ثبت تغییرات شهر  </button>
+                                        <button type="submit" class=" text-sm text-center py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-gray-100 rounded  ">افزودن محله جدید </button>
                                     </div>
                                     <div class="mt-2">
-                                        <a href="{{route('admin.advertise.cities.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded  ">انصراف </a>
+                                        <a href="{{route('admin.advertise.areas.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded  ">انصراف </a>
                                     </div>
                                 </div>
                             </div>

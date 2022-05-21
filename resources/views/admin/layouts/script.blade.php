@@ -5,4 +5,4 @@
 
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
-<script src="https://use.fontawesome.com/c49036f17e.js"></script>
+{{-- <script src="https://use.fontawesome.com/c49036f17e.js"></script> --}}

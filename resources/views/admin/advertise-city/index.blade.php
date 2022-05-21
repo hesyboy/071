@@ -27,7 +27,7 @@
                 @if (session('msg'))
                     <div class="flex">
                         <div class=" mb-3">
-                            <div class="p-3 text-sm bg-orange-600 rounded border-b border-gray-200 text-white">
+                            <div class="p-3 text-sm bg-gray-800 rounded border-b border-gray-200 text-white">
                                 {{session('msg')}}
                             </div>
                         </div>
@@ -37,7 +37,7 @@
 
 
 
-            <div class="mt-3">
+            <div class="">
                 <div class="bg-white shadow rounded overflow-y-auto">
                     <table class="table-fixed text-right w-full px-2">
                         <thead class="">

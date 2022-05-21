@@ -55,6 +55,12 @@ class AdvertiseCategoryController extends Controller
 
 
     public function update(AdvertiseCategory $advertisecategory,Request $request){
+
+        $validated=$request->validate([
+            'title' => ['required','max:25'],
+            'icon' => ['image','mimes:png,jpg','max:2048'],
+        ]);
+
         $advertisecategory->title=$request->title;
         $advertisecategory->description=$request->description;
         $advertisecategory->seo_title=$request->seo_title;
@@ -72,7 +78,7 @@ class AdvertiseCategoryController extends Controller
         }
 
         $advertisecategory->save();
-        return redirect()->route('admin.advertise.categories.index')->with('msg','تغییرات دسته با موفقیت ساخته شد');
+        return redirect()->route('admin.advertise.categories.index')->with('msg','تغییرات دسته با موفقیت انجام شد');
     }
 
 

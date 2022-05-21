@@ -102,7 +102,7 @@
                 @endif
 
                           >
-                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-4 bg-gray-100 text-black rounded-lg  hover:bg-gray-200"
+                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-4 bg-gray-100 text-black rounded  hover:bg-gray-200"
                   href="#">
                     <div class="flex items-center gap-2">
                         <ion-icon name="layers-outline" class="text-2xl"></ion-icon>
@@ -113,9 +113,18 @@
 
                 </a>
 
-                <ul x-show="open" x-transition class="flex flex-col gap-3 px-4">
+                <ul x-show="open" x-transition class="flex flex-col gap-2 px-4">
                     <li class="flex">
-                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded-lg  text-black
+                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded  text-black
+                        @if (request()->routeIs('admin.1111'))
+                            bg-yellow-500
+                        @else
+                            bg-gray-100 hover:bg-gray-200
+                        @endif
+                        ">گزارش کلی     </a>
+                    </li>
+                    <li class="flex">
+                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded  text-black
                         @if (request()->routeIs('admin.1111'))
                             bg-yellow-500
                         @else
@@ -124,7 +133,7 @@
                         "> آگهی ها   </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.advertise.categories.index')}}" class="w-full text-sm text-center p-2 rounded-lg
+                        <a href="{{route('admin.advertise.categories.index')}}" class="w-full text-sm text-center p-2 rounded
                         @if (request()->routeIs('admin.advertise.categories.*'))
                             bg-gray-800 text-white
                         @else
@@ -133,7 +142,7 @@
                         ">دسته بندی های آگهی   </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.advertise.cities.index')}}" class="w-full text-sm text-center p-2 rounded-lg
+                        <a href="{{route('admin.advertise.cities.index')}}" class="w-full text-sm text-center p-2 rounded
                         @if (request()->routeIs('admin.advertise.cities.*'))
                             bg-gray-800 text-white
                         @else
@@ -142,11 +151,11 @@
                         ">شهرها  </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.users.create')}}" class="w-full text-sm text-center p-2 font-bold rounded-lg  text-black
-                        @if (request()->routeIs('admin.users.create'))
-                            bg-yellow-500
+                        <a href="{{route('admin.advertise.areas.index')}}" class="w-full text-sm text-center p-2 rounded
+                        @if (request()->routeIs('admin.advertise.areas.*'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
                         ">محله ها  </a>
                     </li>

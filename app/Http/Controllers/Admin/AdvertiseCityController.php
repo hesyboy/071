@@ -42,12 +42,18 @@ class AdvertiseCityController extends Controller
     }
 
     public function update(City $city,Request $request){
+
+        $validated=$request->validate([
+            'name' => ['required','max:25'],
+            'status' => ['required'],
+        ]);
+
         $city->name=$request->name;
         $city->status=$request->status;
 
 
         $city->save();
-        return redirect()->route('admin.advertise.cities.index')->with('msg','تغییرات شهر با موفقیت ساخته شد');
+        return redirect()->route('admin.advertise.cities.index')->with('msg','تغییرات شهر با موفقیت انجام شد');
     }
 
     public function delete(City $city){
