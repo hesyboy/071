@@ -28,7 +28,7 @@ class CreateAdvertisesTable extends Migration
 
             $table->unsignedTinyInteger('adv_type')->default(0)->comment('0=>personal,1=>shopping');
 
-            $table->string('price');
+            $table->string('price')->nullable();
             $table->string('discount')->nullable();
 
             $table->foreignId('city_id')->constrained('cities')->cascadeOnDelete();

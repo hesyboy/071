@@ -73,11 +73,11 @@
 
                 <ul x-show="open" x-transition class="flex flex-col gap-3 py-2 px-4 ">
                     <li class="flex">
-                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded-lg  text-black
-                        @if (request()->routeIs('admin.users.index'))
-                            bg-yellow-500
+                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2  rounded
+                        @if (request()->routeIs('admin.users.*'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
                         "> کاربران   </a>
                     </li>
@@ -124,11 +124,11 @@
                         ">گزارش کلی     </a>
                     </li>
                     <li class="flex">
-                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded  text-black
-                        @if (request()->routeIs('admin.1111'))
-                            bg-yellow-500
+                        <a href="{{route('admin.advertise.index')}}" class="w-full text-sm text-center p-2  rounded
+                        @if (request()->routeIs('admin.advertise.index'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
                         "> آگهی ها   </a>
                     </li>

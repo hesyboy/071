@@ -4,7 +4,52 @@
 
 
 
-        <div class="p-3">
+        <div class="">
+
+
+            <div class="grid grid-cols-5 gap-4 mb-5">
+                <div class="rounded-lg shadow bg-white overflow-hidden">
+                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                        <div class="text-sm">
+                            کل دسته بندی ها
+                        </div>
+                    </div>
+                    <div class="text-2xl text-center p-2 font-bold">
+                        {{$advertiseCategories->count()}}
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow bg-white overflow-hidden">
+                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                        <div class="text-sm">
+                            دسته های فعال
+                        </div>
+                    </div>
+                    <div class="text-2xl text-center p-2 font-bold">
+                        {{$advertiseCategories->where('status',1)->count()}}
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow bg-white overflow-hidden">
+                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                        <div class="text-sm">
+                            دسته های غیر فعال
+                        </div>
+                    </div>
+                    <div class="text-2xl text-center p-2 font-bold">
+                        {{$advertiseCategories->where('status',0)->count()}}
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
             <div class="mb-3 bg-white shadow rounded p-3">
                 <div class="flex justify-between items-center">
                     <div class="text-xl font-bold py-3">
@@ -18,34 +63,26 @@
                          href="{{route('admin.advertise.categories.create')}}">افزودن دسته بندی جدید</a>
                         </div>
 
-                        {{-- <div> | </div> --}}
-
-                        {{-- <div>
-                            <form action="{{route('admin.users.index')}}" method="GET">
-                                <div class="flex gap-1 items-center relative">
-                                    <input name="search" class="px-2 py-3 rounded text-sm w-60 border-gray-200 " type="text" value="" placeholder="Title">
-                                    <button type="submit" class="flex absolute left-1 text-xl text-center py-1 px-2 bg-gray-600 text-white rounded hover:bg-gray-800">
-                                        <ion-icon name="search"></ion-icon>
-                                    </button>
-                                </div>
-                            </form>
-
-                        </div> --}}
-
                     </div>
                 </div>
             </div>
 
             <div>
                 @if (session('msg'))
-                    <div class="flex">
-                        <div class=" mb-3">
-                            <div class="p-3 text-sm bg-gray-800 rounded border-b border-gray-200 text-white">
-                                {{session('msg')}}
+                    <div class="" x-data="{notify:true}">
+                        <div class=" mb-3" x-show="notify" x-transition>
+                            <div class="p-3 text-sm bg-gray-800 rounded border-b border-gray-200 text-white flex items-center gap-3 justify-between">
+                                <div class=" flex items-center gap-3">
+                                    <ion-icon class="text-3xl p-2 bg-gray-100 rounded text-gray-800 " name="notifications-outline"></ion-icon>
+                                    <div class="">
+                                        {{session('msg')}}
+                                    </div>
+                                </div>
+                                <ion-icon @click="notify=false" class="text-3xl cursor-pointer text-gray-100" name="close"></ion-icon>
                             </div>
                         </div>
                     </div>
-            @endif
+                @endif
             </div>
 
 
