@@ -2,6 +2,49 @@
 
 @section('body')
     <div>
+
+
+        <div class="grid grid-cols-3 gap-4 my-5">
+
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-gray-800 p-3 text-center text-white">
+                     بازدید امروز
+                </div>
+                <div class="text-2xl text-center p-2 font-bold">
+                    8900
+                </div>
+            </div>
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-gray-800 p-3 text-center text-white">
+                     بازدید این ماه
+                </div>
+                <div class="text-2xl text-center p-2 font-bold">
+                    8900
+                </div>
+            </div>
+
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-gray-800 p-3 text-center text-white">
+                     بازدید کل
+                </div>
+                <div class="text-2xl text-center p-2 font-bold">
+                    8900
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <hr class="bg-gray-800 h-2 rounded my-5">
+
+
+
+
+
         <div class="grid grid-cols-4 gap-4 my-5">
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
@@ -64,44 +107,60 @@
 
         </div>
 
-
-
         <div class="grid grid-cols-4 gap-4 my-5">
-
-
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
-                     بازدید امروز
+                <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="text-sm">
+                        تعداد دسته ها
+                    </div>
                 </div>
                 <div class="text-2xl text-center p-2 font-bold">
-                    8900
+                    350
                 </div>
             </div>
 
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
-                     بازدید این ماه
+                <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="text-sm">
+                        تعداد شهرها
+                    </div>
                 </div>
                 <div class="text-2xl text-center p-2 font-bold">
-                    8900
+                    860
                 </div>
             </div>
-
 
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
-                     بازدید کل
+                <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="text-sm">
+                        تعداد محله ها
+                    </div>
                 </div>
                 <div class="text-2xl text-center p-2 font-bold">
-                    8900
+                    65
                 </div>
             </div>
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="text-sm">
+                        تعداد پیام ها
+                    </div>
+                </div>
+                <div class="text-2xl text-center p-2 font-bold">
+                    350
+                </div>
+            </div>
+
 
 
 
         </div>
 
         <hr class="bg-gray-800 h-2 rounded my-5">
+
+
+
 
 
         <div class="grid grid-cols-2 gap-4 my-5">
