@@ -39,15 +39,15 @@
 
             <li class="flex">
                 <a href="{{route('admin.index')}}"
-                class="flex items-center gap-2 w-full text-center p-4 rounded-lg text-black hover:bg-gray-200
+                class="flex items-center gap-2 w-full text-center p-4 rounded-lg  hover:bg-gray-200 hover:text-gray-800
                         @if (request()->routeIs('admin.index'))
-                            bg-yellow-500
+                            bg-gray-800 text-white
                         @else
                             bg-gray-100 text-gray-600
                         @endif
                 ">
                     <ion-icon name="home-outline"  class="text-2xl"></ion-icon>
-                    <span class="text-base px-2 font-bold"> داشبورد </span>
+                    <span class="text-base px-2"> داشبورد </span>
                 </a>
             </li>
 
