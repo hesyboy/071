@@ -103,6 +103,7 @@
 
         <hr class="bg-gray-800 h-2 rounded my-5">
 
+
         <div class="grid grid-cols-2 gap-4 my-5">
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-3 text-center text-white flex justify-between items-center text-lg">

@@ -96,7 +96,7 @@
 
                                 <div class="flex justify-end gap-3 items-center mt-2">
                                     <div class="mt-2">
-                                        <button type="submit" class=" text-sm text-center py-2 px-4 bg-orange-500 hover:bg-orange-600 text-gray-100 rounded  ">ثبت تغییرات شهر  </button>
+                                        <button type="submit" class=" text-sm text-center py-2 px-4 bg-orange-600 hover:bg-orange-700 text-gray-100 rounded  ">ثبت تغییرات شهر  </button>
                                     </div>
                                     <div class="mt-2">
                                         <a href="{{route('admin.advertise.cities.index')}}" class=" text-sm text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-gray-100 rounded  ">انصراف </a>
