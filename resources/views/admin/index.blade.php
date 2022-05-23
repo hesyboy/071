@@ -8,38 +8,68 @@
 
 
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
+                <div class="bg-gray-800 p-3 text-center text-white text-lg">
                      بازدید امروز
+                     <div class="text-2xl text-center p-2 font-bold">
+                        8900
+                    </div>
                 </div>
-                <div class="text-2xl text-center p-2 font-bold">
-                    8900
-                </div>
+
             </div>
 
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
+                <div class="bg-gray-800 p-3 text-center text-white text-lg">
                      بازدید این ماه
+                     <div class="text-2xl text-center p-2 font-bold">
+                        8900
+                    </div>
                 </div>
-                <div class="text-2xl text-center p-2 font-bold">
-                    8900
-                </div>
+
             </div>
 
 
             <div class="rounded-lg shadow bg-white overflow-hidden">
-                <div class="bg-gray-800 p-3 text-center text-white">
+                <div class="bg-indigo-800 p-3 text-center text-white text-lg">
                      بازدید کل
+                     <div class="text-2xl text-center p-2 font-bold">
+                        8900
+                    </div>
                 </div>
-                <div class="text-2xl text-center p-2 font-bold">
-                    8900
-                </div>
+
             </div>
 
 
 
         </div>
 
-        <hr class="bg-gray-800 h-2 rounded my-5">
+        <div class="grid grid-cols-2 gap-4 my-5">
+
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-gray-800 p-3 text-center text-white text-lg">
+                     درآمد امروز
+                     <div class="text-2xl text-center p-2 font-bold">
+                        24،735،000 تومان
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="bg-emerald-600 p-3 text-center text-white text-lg">
+                     درآمد کل
+                     <div class="text-2xl text-center p-2 font-bold">
+                        124،735،000 تومان
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        {{-- <hr class="bg-gray-800 h-2 rounded my-5"> --}}
 
 
 
@@ -107,7 +137,7 @@
 
         </div>
 
-        <div class="grid grid-cols-4 gap-4 my-5">
+        {{-- <div class="grid grid-cols-4 gap-4 my-5">
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                     <div class="text-sm">
@@ -155,7 +185,7 @@
 
 
 
-        </div>
+        </div> --}}
 
         <hr class="bg-gray-800 h-2 rounded my-5">
 

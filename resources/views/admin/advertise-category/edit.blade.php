@@ -69,20 +69,46 @@
                                     </div>
                                 </div>
 
-                                <div class="w-full md:w-6/12">
+                                <div class="w-full md:w-6/12"  x-data="showImage()">
                                     <div class="text-sm">
                                         <span> آیکون دسته بندی </span>
                                         @error('icon')
                                         <span class="block bg-red-500 rounded p-1 text-white text-xs">{{$message}}</span>
                                         @enderror
                                     </div>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex gap-3 items-center">
+                                        <div class="w-24 h-24 border-2 border-dashed rounded-lg p-1 mb-3 relative">
+                                            <img id="preview" class="rounded-lg w-32 max-h-32"  src="{{asset($advertisecategory->icon)}}">
+                                            {{-- <ion-icon name="add-outline" class="text-6xl text-gray-200 absolute top-4 w-20 text-center"></ion-icon> --}}
+                                        </div>
+                                        <label class="flex gap-3 items-center px-4 py-2 bg-blue-600 text-white rounded shadow-md tracking-wide uppercase border cursor-pointer hover:bg-blue-700 hover:text-white text-blue-600 ease-linear transition-all duration-150">
+                                            <ion-icon class="text-xl" name="cloud-upload-outline"></ion-icon>
+                                            <span class=" text-sm leading-normal">آپلود لوگو</span>
+                                            <input name="icon" type="file" class="hidden" value="{{old('icon',$advertisecategory->icon)}}" @change="showPreview(event)" />
+                                        </label>
+
+                                        <script>
+                                            function showImage() {
+                                                return {
+                                                    showPreview(event) {
+                                                        if (event.target.files.length > 0) {
+                                                            var src = URL.createObjectURL(event.target.files[0]);
+                                                            var preview = document.getElementById("preview");
+                                                            preview.src = src;
+                                                            preview.style.display = "block";
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                    {{-- <div class="flex items-center gap-3">
                                         <div>
                                             <img class="w-12" src="{{asset($advertisecategory->icon)}}" alt="">
                                         </div>
                                         <input name="icon" class="px-2 py-2 my-2 rounded text-sm w-full border bg-gray-50 border-gray-400"
                                         type="file" value="{{old('icon',$advertisecategory->icon)}}">
-                                    </div>
+                                    </div> --}}
 
                                 </div>
 

@@ -39,7 +39,7 @@
 
             <li class="flex">
                 <a href="{{route('admin.index')}}"
-                class="flex items-center gap-2 w-full text-center p-4 rounded-lg  hover:bg-gray-200 hover:text-gray-800
+                class="flex items-center gap-2 w-full text-center p-3 rounded  hover:bg-gray-200 hover:text-gray-800
                         @if (request()->routeIs('admin.index'))
                             bg-gray-800 text-white
                         @else
@@ -60,18 +60,27 @@
                 @endif
 
                           >
-                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-4 bg-gray-100 text-black rounded-lg  hover:bg-gray-200"
+                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-3 bg-gray-100 text-black rounded  hover:bg-gray-200"
                   href="#">
                     <div class="flex items-center gap-2">
-                        <ion-icon name="people-outline" class="text-3xl"></ion-icon>
-                        <span class="text-base font-bold "> مدیریت کاربران </span>
+                        <ion-icon name="people-outline" class="text-2xl"></ion-icon>
+                        <span class="text-base "> مدیریت کاربران </span>
                     </div>
-                    <ion-icon name="ellipsis-horizontal-outline"  :class="{'hidden' : open }" class="text-2xl text-black"></ion-icon>
-                    <ion-icon name="ellipsis-vertical-outline" :class="{'hidden' : !open }" class="text-2xl text-black"></ion-icon>
+                    <ion-icon name="caret-forward-circle-outline"  :class="{'hidden' : open }" class="text-2xl text-gray-600"></ion-icon>
+                    <ion-icon name="caret-down-circle-outline" :class="{'hidden' : !open }" class="text-2xl text-gray-600"></ion-icon>
 
                 </a>
 
                 <ul x-show="open" x-transition class="flex flex-col gap-3 py-2 px-4 ">
+                    <li class="flex">
+                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded  text-black
+                        @if (request()->routeIs('admin.1111'))
+                            bg-yellow-500
+                        @else
+                            bg-gray-100 hover:bg-gray-200
+                        @endif
+                        ">گزارش و آمار کاربران      </a>
+                    </li>
                     <li class="flex">
                         <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2  rounded
                         @if (request()->routeIs('admin.users.*'))
@@ -102,14 +111,14 @@
                 @endif
 
                           >
-                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-4 bg-gray-100 text-black rounded  hover:bg-gray-200"
+                <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-3 bg-gray-100 text-black rounded  hover:bg-gray-200"
                   href="#">
                     <div class="flex items-center gap-2">
                         <ion-icon name="layers-outline" class="text-2xl"></ion-icon>
-                        <span class="text-base px-2 font-bold"> مدیریت آگهی ها </span>
+                        <span class="text-base px-2"> مدیریت آگهی ها </span>
                     </div>
-                    <ion-icon name="ellipsis-horizontal-outline"  :class="{'hidden' : open }" class="text-2xl text-black"></ion-icon>
-                    <ion-icon name="ellipsis-vertical-outline" :class="{'hidden' : !open }" class="text-2xl text-black"></ion-icon>
+                    <ion-icon name="caret-forward-circle-outline"  :class="{'hidden' : open }" class="text-2xl text-gray-600"></ion-icon>
+                    <ion-icon name="caret-down-circle-outline" :class="{'hidden' : !open }" class="text-2xl text-gray-600"></ion-icon>
 
                 </a>
 
@@ -121,7 +130,7 @@
                         @else
                             bg-gray-100 hover:bg-gray-200
                         @endif
-                        ">گزارش کلی     </a>
+                        ">گزارش و آمار آگهی ها     </a>
                     </li>
                     <li class="flex">
                         <a href="{{route('admin.advertise.index')}}" class="w-full text-sm text-center p-2  rounded

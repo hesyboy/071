@@ -71,7 +71,7 @@
                 @if (session('msg'))
                     <div class="" x-data="{notify:true}">
                         <div class=" mb-3" x-show="notify" x-transition>
-                            <div class="p-3 text-sm bg-gray-800 rounded border-b border-gray-200 text-white flex items-center gap-3 justify-between">
+                            <div class="p-3 text-sm bg-indigo-800 rounded border-b border-gray-200 text-white flex items-center gap-3 justify-between">
                                 <div class=" flex items-center gap-3">
                                     <ion-icon class="text-3xl p-2 bg-gray-100 rounded text-gray-800 " name="notifications-outline"></ion-icon>
                                     <div class="">
