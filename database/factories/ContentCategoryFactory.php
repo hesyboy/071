@@ -14,7 +14,11 @@ class ContentCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->jobTitle(),
+            'description' => $this->faker->paragraph(),
+            'seo_title' => $this->faker->title(),
+            'seo_description' => $this->faker->paragraph(),
+            'status' => $this->faker->numberBetween(0,1),
         ];
     }
 }

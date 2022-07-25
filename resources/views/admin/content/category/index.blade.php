@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{-- {{$advertiseCategories->count()}} --}}
+                        {{$totalContentCategories->count()}}
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{-- {{$advertiseCategories->where('status',1)->count()}} --}}
+                        {{$totalContentCategories->where('status',1)->count()}}
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{-- {{$advertiseCategories->where('status',0)->count()}} --}}
+                        {{$totalContentCategories->where('status',0)->count()}}
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
 
                         <div>
                             <a class="text-sm text-center py-2 px-4 bg-emerald-600 text-white rounded hover:bg-emerald-700"
-                         href="{{route('admin.advertise.categories.create')}}">افزودن دسته بندی جدید</a>
+                            href="{{route('admin.blog.categories.create')}}">افزودن دسته بندی جدید</a>
                         </div>
 
                     </div>
@@ -101,7 +101,7 @@
                             </tr>
                         </thead>
                         <tbody class="" >
-                            @foreach ([] as $key=>$item)
+                            @foreach ($contentCategories as $key=>$item)
                             <tr class="border-b hover:bg-gray-100">
                                 <td class="py-3 px-2">
                                     <span class=" text-gray-600 text-xs">
@@ -135,7 +135,7 @@
 
                                 <td class="py-3 px-2">
                                     <span class=" text-gray-500 text-xs">
-                                        {{count($item->getAdvertises)}}
+                                        {{-- {{count($item->getAdvertises)}} --}}
                                     </span>
                                 </td>
 
@@ -160,7 +160,7 @@
                                     <div class="flex items-center">
 
                                         <div class="rounded-lg py-1 px-2 text-black text-sm">
-                                            <a href="{{route('admin.advertise.categories.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-orange-500 text-white rounded hover:bg-orange-600 ">مشاهده و تغییرات</a>
+                                            <a href="{{route('admin.blog.categories.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-orange-500 text-white rounded hover:bg-orange-600 ">مشاهده و تغییرات</a>
                                         </div>
 
 
@@ -182,7 +182,7 @@
                                                                 آیا از حذف مطمئن هستید؟
                                                             </div>
                                                             <div class="flex gap-5 p-3 justify-between">
-                                                                <form action="{{route('admin.advertise.categories.delete',$item)}}" method="post">
+                                                                <form action="{{route('admin.blog.categories.delete',$item)}}" method="post">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <a  @click="popup=false" class="cursor-pointer text-sm text-center py-2 px-4 bg-red-700 text-white rounded hover:bg-red-600 ">خیر</a>
@@ -208,6 +208,11 @@
 
                         </tbody>
                     </table>
+
+                    <div class="px-10 py-5 " dir="ltr">
+                        {!! $contentCategories->appends(\Request::except('page'))->render() !!}
+                    </div>
+
                 </div>
             </div>
         </div>

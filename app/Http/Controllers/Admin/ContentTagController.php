@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContentTag;
 use Illuminate\Http\Request;
 
 class ContentTagController extends Controller
@@ -13,8 +14,10 @@ class ContentTagController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        // $contents=Content::all();
-        return view('admin.content.tag.index');
+        $factory=ContentTag::factory()->count(5)->create();
+        $totalContentTags=ContentTag::all();
+        $contentTags=ContentTag::sortable()->paginate(10);
+        return view('admin.content.tag.index',compact('contentTags','totalContentTags'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ContentTagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.content.tag.create');
     }
 
     /**
@@ -35,7 +38,21 @@ class ContentTagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated=$request->validate([
+            'title' => ['required','max:30'],
+            'seo_title' => ['max:30'],
+            'seo_description' => ['max:40'],
+            'status' => ['required'],
+        ]);
+
+        $contentTag=ContentTag::create([
+            'title' => $request->title,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin.blog.tags.index')->with('msg','تگ جدید مطالب با موفقیت ساخته شد');
     }
 
     /**
@@ -55,9 +72,9 @@ class ContentTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ContentTag $contentTag)
     {
-        //
+        return view('admin.content.tag.edit',compact('contentTag'));
     }
 
     /**
@@ -67,9 +84,21 @@ class ContentTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ContentTag $contentTag)
     {
-        //
+        $validated=$request->validate([
+            'title' => ['required','max:30'],
+            'seo_title' => ['max:30'],
+        ]);
+
+        $contentTag->title=$request->title;
+        $contentTag->seo_title=$request->seo_title;
+        $contentTag->seo_description=$request->seo_description;
+        $contentTag->status=$request->status;
+
+
+        $contentTag->update();
+        return redirect()->route('admin.blog.tags.index')->with('msg','تغییرات تگ مطالب با موفقیت انجام شد');
     }
 
     /**
@@ -78,8 +107,8 @@ class ContentTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function delete(ContentTag $contentTag){
+        $contentTag->delete();
+        return redirect()->route('admin.blog.tags.index')->with('msg','تگ مطالب مورد نظر با موفقیت حذف شد');
     }
 }

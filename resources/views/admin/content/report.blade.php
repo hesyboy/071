@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="text-2xl text-center p-2 font-bold">
-                    {{-- {{count($advertiseCategories)}} --}}
+                    {{count($categories)}}
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="text-2xl text-center p-2 font-bold">
-                    {{-- {{count($cities)}} --}}
+                    {{count($tags)}}
                 </div>
             </div>
 
@@ -73,7 +73,7 @@
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-3 text-center text-white flex justify-between items-center text-lg">
                      <div class=" text-center">
-                        جدیدترین مطالب
+                        پربازدیدترین مطالب
                      </div>
                      <div class=" text-center">
 
@@ -106,7 +106,7 @@
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-3 text-center text-white flex justify-between items-center text-lg">
                      <div class=" text-center">
-                        پربازدیدترین  مطالب
+                        پربازدیدترین دسته بندی مطالب
                      </div>
                      <div class=" text-center">
 
@@ -114,19 +114,16 @@
                 </div>
                 <div class="p-4">
                     <ul>
-                        @foreach ([] as $item )
+                        @foreach ($categories as $item )
                             @if ($loop->index<5)
                             <li class="py-2 border-b">
-                                <a href="{{route('admin.advertise.edit',$item)}}" class="flex justify-between text-sm hover:font-semibold">
+                                <a href="{{route('admin.blog.categories.edit',$item)}}" class="flex justify-between text-sm hover:font-semibold">
                                     <div>
                                     {{$item->title}}
                                     </div>
                                     <div class="flex gap-8">
                                         <div>
-                                            {{$item->getCategory->title}}
-                                        </div>
-                                        <div>
-                                            50
+                                            25
                                         </div>
                                     </div>
                                 </a>
@@ -144,7 +141,7 @@
             <div class="rounded-lg shadow bg-white overflow-hidden">
                 <div class="bg-gray-800 p-3 text-center text-white flex justify-between items-center text-lg">
                      <div class=" text-center">
-                        محبوب ترین مطالب
+                        پربازدیدترین تگ ها
                      </div>
                      <div class=" text-center">
 
@@ -152,7 +149,7 @@
                 </div>
                 <div class="p-4">
                     <ul>
-                        @foreach ([] as $item )
+                        @foreach ($tags as $item )
                             @if ($loop->index<5)
                             <li class="py-2 border-b">
                                 <a href="{{route('admin.advertise.edit',$item)}}" class="flex justify-between text-sm hover:font-semibold">
@@ -160,9 +157,6 @@
                                     {{$item->title}}
                                     </div>
                                     <div class="flex gap-8">
-                                        <div>
-                                            {{$item->getCategory->title}}
-                                        </div>
                                         <div>
                                             50
                                         </div>

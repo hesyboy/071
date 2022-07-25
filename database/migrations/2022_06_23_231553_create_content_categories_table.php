@@ -20,9 +20,9 @@ class CreateContentCategoriesTable extends Migration
             $table->text('description')->nullable();
 
             $table->string('seo_title')->nullable();
-            $table->string('seo_description')->nullable();
+            $table->text('seo_description')->nullable();
 
-            $table->foreignId('parent_id')->constrained('content_categories')->cascadeOnDelete();
+            $table->foreignId('parent_id')->nullable()->constrained('content_categories')->cascadeOnDelete();
             $table->unsignedTinyInteger('status')->default(1)->comment('0=>deactive | 1=>active');
             $table->timestamps();
         });

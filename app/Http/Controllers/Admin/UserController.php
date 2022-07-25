@@ -4,12 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Faker\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index(Request $request){
+
+        $factory=User::factory()->count(5)->create();
+
+        $total_users=User::all();
+
         if($request->search){
             $users=User::sortable()->where('phone','like','%'.$request->search.'%')
             ->orWhere('name','like','%'.$request->search.'%')
@@ -20,7 +26,7 @@ class UserController extends Controller
             $users=User::sortable()->paginate(10);
         }
 
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index',compact('users','total_users'));
     }
 
 
@@ -100,4 +106,15 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index')->with('msg','کاربر مورد نظر با موفقیت حذف شد');
     }
+
+
+    public function report(){
+        $users=User::all();
+        $advertiseCategories=[];
+        $cities=[];
+        $areas=[];
+        return view('admin.users.report',compact('users','advertiseCategories','cities','areas'));
+    }
+
+
 }

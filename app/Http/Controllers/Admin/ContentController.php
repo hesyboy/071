@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContentCategory;
+use App\Models\ContentTag;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller
@@ -24,7 +26,7 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -85,10 +87,9 @@ class ContentController extends Controller
 
 
     public function report(){
-        // $Advertises=Advertise::all();
-        // $advertiseCategories=AdvertiseCategory::all();
-        // $cities=City::all();
-        // $areas=Area::all();
-        return view('admin.content.report');
+        $contents=[];
+        $categories=ContentCategory::all();
+        $tags=ContentTag::all();
+        return view('admin.content.report',compact('categories','tags'));
     }
 }

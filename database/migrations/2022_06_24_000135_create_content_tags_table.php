@@ -17,7 +17,6 @@ class CreateContentTagsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('description')->nullable();
 
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();

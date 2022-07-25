@@ -9,36 +9,36 @@
 
 
             <div class="grid grid-cols-5 gap-4 mb-5">
-                <div class="rounded-lg shadow bg-white">
+                <div class="rounded-lg shadow bg-white overflow-hidden">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کل کاربران
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{$users->count()}}
+                        {{$total_users->count()}}
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow bg-white">
+                <div class="rounded-lg shadow bg-white overflow-hidden">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کاربران فعال
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{$users->where('status',1)->count()}}
+                        {{$total_users->where('status',1)->count()}}
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow bg-white">
+                <div class="rounded-lg shadow bg-white overflow-hidden">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کاربران غیر فعال
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{$users->where('status',0)->count()}}
+                        {{$total_users->where('status',0)->count()}}
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{$users->where('is_admin',0)->count()}}
+                        {{$total_users->where('is_admin',0)->count()}}
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="text-2xl text-center p-2 font-bold">
-                        {{$users->where('is_admin',1)->count()}}
+                        {{$total_users->where('is_admin',1)->count()}}
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                 <div class="flex justify-between items-center">
                     <div class="text-xl font-bold py-3">
                         <span> کاربران</span>
-                        <span class="text-sm">( مجموع : {{count($users)}} )</span>
+                        <span class="text-sm">( مجموع : {{count($total_users)}} )</span>
                     </div>
                     <div class="flex gap-3 items-center">
 

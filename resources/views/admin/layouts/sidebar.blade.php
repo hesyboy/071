@@ -80,18 +80,19 @@
                 </a>
 
                 <ul x-show="open" x-transition class="flex flex-col gap-3 py-2 px-4 ">
+
                     <li class="flex">
-                        <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2 font-bold  rounded  text-black
-                        @if (request()->routeIs('admin.1111'))
-                            bg-yellow-500
+                        <a href="{{route('admin.users.report')}}" class="w-full text-sm text-center p-2  rounded
+                        @if (request()->routeIs('admin.users.report'))
+                            bg-gray-800 text-white
                         @else
-                            bg-gray-100 hover:bg-gray-200
+                            bg-gray-100 hover:bg-gray-200 text-black
                         @endif
-                        ">گزارش و آمار کاربران      </a>
+                        "> گزارش و آمار کاربران   </a>
                     </li>
                     <li class="flex">
                         <a href="{{route('admin.users.index')}}" class="w-full text-sm text-center p-2  rounded
-                        @if (request()->routeIs('admin.users.*'))
+                        @if (request()->routeIs('admin.users.index'))
                             bg-gray-800 text-white
                         @else
                             bg-gray-100 hover:bg-gray-200 text-black
@@ -109,6 +110,105 @@
                     </li>
                 </ul>
             </li>
+
+
+
+
+
+                        {{-- آگهی ها --}}
+                        <li class="flex flex-col gap-3"
+                        @if (request()->routeIs('admin.advertise.*'))
+                            x-data="{open: true}"
+                        @else
+                            x-data="{open: false}"
+                        @endif
+
+                                  >
+                        <a @click="open = !open" class="flex justify-between items-center  w-full text-sm text-center p-3 bg-gray-100 text-black rounded  hover:bg-gray-200"
+                          >
+                            <div class="flex items-center gap-2">
+                                <ion-icon name="storefront-outline" class="text-2xl"></ion-icon>
+                                <span class="text-base px-2"> مدیریت فروشگاه ها </span>
+                            </div>
+                            <ion-icon name="caret-forward-circle-outline"  :class="{'hidden' : open }" class="text-2xl text-gray-600"></ion-icon>
+                            <ion-icon name="caret-down-circle-outline" :class="{'hidden' : !open }" class="text-2xl text-gray-600"></ion-icon>
+
+                        </a>
+
+                        <ul x-show="open" x-transition class="flex flex-col gap-2 px-4">
+
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.report')}}" class="w-full text-sm text-center p-2  rounded
+                                @if (request()->routeIs('admin.advertise.report'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                "> گزارش و آمار آگهی ها   </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.index')}}" class="w-full text-sm text-center p-2  rounded
+                                @if (request()->routeIs('admin.advertise.index'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                "> آگهی ها   </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.categories.index')}}" class="w-full text-sm text-center p-2 rounded
+                                @if (request()->routeIs('admin.advertise.categories.*'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                ">دسته بندی های آگهی   </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.filters.index')}}" class="w-full text-sm text-center p-2 rounded
+                                @if (request()->routeIs('admin.advertise.filters.*'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                ">فیلترهای دسته بندی     </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.attributes.index')}}" class="w-full text-sm text-center p-2 rounded
+                                @if (request()->routeIs('admin.advertise.attributes.*'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                ">مقادیر فیلترها   </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.cities.index')}}" class="w-full text-sm text-center p-2 rounded
+                                @if (request()->routeIs('admin.advertise.cities.*'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                ">شهرها  </a>
+                            </li>
+                            <li class="flex">
+                                <a href="{{route('admin.advertise.areas.index')}}" class="w-full text-sm text-center p-2 rounded
+                                @if (request()->routeIs('admin.advertise.areas.*'))
+                                    bg-gray-800 text-white
+                                @else
+                                    bg-gray-100 hover:bg-gray-200 text-black
+                                @endif
+                                ">محله ها  </a>
+                            </li>
+                            <hr>
+                        </ul>
+                    </li>
+
+
+
+
+
+
 
             {{-- آگهی ها --}}
             <li class="flex flex-col gap-3"

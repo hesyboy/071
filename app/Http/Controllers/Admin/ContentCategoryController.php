@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContentCategory;
 use Illuminate\Http\Request;
 
 class ContentCategoryController extends Controller
@@ -13,8 +14,11 @@ class ContentCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        // $contents=Content::all();
-        return view('admin.content.category.index');
+        $factory=ContentCategory::factory()->count(5)->create();
+
+        $totalContentCategories=ContentCategory::all();
+        $contentCategories=ContentCategory::sortable()->paginate(10);
+        return view('admin.content.category.index',compact('contentCategories','totalContentCategories'));
     }
 
     /**
@@ -24,7 +28,8 @@ class ContentCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $contentCategories=ContentCategory::all();
+        return view('admin.content.category.create',compact('contentCategories'));
     }
 
     /**
@@ -35,7 +40,25 @@ class ContentCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated=$request->validate([
+            'title' => ['required','max:30'],
+            'description' => ['required'],
+            'seo_title' => ['required','max:30'],
+            'seo_description' => ['max:40'],
+        ]);
+
+        $contentCategory=ContentCategory::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'parent_id' => $request->parent_id,
+            'seo_title' => $request->seo_title,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin.blog.categories.index')->with('msg','دسته مطالب جدید با موفقیت ساخته شد');
+
+
+
     }
 
     /**
@@ -57,7 +80,9 @@ class ContentCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contentCategories=ContentCategory::all();
+        $contentCategory=ContentCategory::find($id);
+        return view('admin.content.category.edit',compact('contentCategories','contentCategory'));
     }
 
     /**
@@ -67,9 +92,24 @@ class ContentCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContentCategory $contentCategory,Request $request)
     {
-        //
+        $validated=$request->validate([
+            'title' => ['required','max:30'],
+            'description' => ['required'],
+            'seo_title' => ['required','max:30'],
+        ]);
+
+        $contentCategory->title=$request->title;
+        $contentCategory->description=$request->description;
+        $contentCategory->seo_title=$request->seo_title;
+        $contentCategory->seo_description=$request->seo_description;
+        $contentCategory->parent_id=$request->parent_id;
+        $contentCategory->status=$request->status;
+
+
+        $contentCategory->update();
+        return redirect()->route('admin.blog.categories.index')->with('msg','تغییرات دسته مطالب با موفقیت انجام شد');
     }
 
     /**
@@ -78,8 +118,9 @@ class ContentCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function delete(ContentCategory $ContentCategory){
+        // dd($ContentCategory);
+        $ContentCategory->delete();
+        return redirect()->route('admin.blog.categories.index')->with('msg','دسته مطالب مورد نظر با موفقیت حذف شد');
     }
 }

@@ -14,7 +14,10 @@ class ContentTagFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->jobTitle(),
+            'seo_title' => $this->faker->title(),
+            'seo_description' => $this->faker->paragraph(),
+            'status' => $this->faker->numberBetween(0,1),
         ];
     }
 }

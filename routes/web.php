@@ -69,6 +69,9 @@ Route::prefix('admin')->namespace('admin')->group(function(){
         Route::get('/edit/{user}',[UserController::class,'edit'])->name('admin.users.edit');
         Route::put('/update/{user}',[UserController::class,'update'])->name('admin.users.update');
         Route::delete('/delete/{user}',[UserController::class,'delete'])->name('admin.users.delete');
+
+        Route::get('/report',[UserController::class,'report'])->name('admin.users.report');
+
     });
 
 
@@ -182,18 +185,18 @@ Route::prefix('admin')->namespace('admin')->group(function(){
             Route::get('/',[ContentCategoryController::class,'index'])->name('admin.blog.categories.index');
             Route::get('/create',[ContentCategoryController::class,'create'])->name('admin.blog.categories.create');
             Route::post('/store',[ContentCategoryController::class,'store'])->name('admin.blog.categories.store');
-            Route::get('/edit/{category}',[ContentCategoryController::class,'edit'])->name('admin.blog.categories.edit');
-            Route::put('/update/{category}',[ContentCategoryController::class,'update'])->name('admin.blog.categories.update');
-            Route::delete('/delete/{category}',[ContentCategoryController::class,'delete'])->name('admin.blog.categories.delete');
+            Route::get('/edit/{contentCategory}',[ContentCategoryController::class,'edit'])->name('admin.blog.categories.edit');
+            Route::put('/update/{contentCategory}',[ContentCategoryController::class,'update'])->name('admin.blog.categories.update');
+            Route::delete('/delete/{ContentCategory}',[ContentCategoryController::class,'delete'])->name('admin.blog.categories.delete');
         });
 
         Route::prefix('tags')->group(function(){
             Route::get('/',[ContentTagController::class,'index'])->name('admin.blog.tags.index');
             Route::get('/create',[ContentTagController::class,'create'])->name('admin.blog.tags.create');
             Route::post('/store',[ContentTagController::class,'store'])->name('admin.blog.tags.store');
-            Route::get('/edit/{tag}',[ContentTagController::class,'edit'])->name('admin.blog.tags.edit');
-            Route::put('/update/{tag}',[ContentTagController::class,'update'])->name('admin.blog.tags.update');
-            Route::delete('/delete/{tag}',[ContentTagController::class,'delete'])->name('admin.blog.tags.delete');
+            Route::get('/edit/{contentTag}',[ContentTagController::class,'edit'])->name('admin.blog.tags.edit');
+            Route::put('/update/{contentTag}',[ContentTagController::class,'update'])->name('admin.blog.tags.update');
+            Route::delete('/delete/{contentTag}',[ContentTagController::class,'delete'])->name('admin.blog.tags.delete');
         });
 
     });
