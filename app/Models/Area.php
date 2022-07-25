@@ -27,4 +27,13 @@ class Area extends Model
             ]
         ];
     }
+
+    public function getcity(){
+        return $this->belongsTo(City::class,'city_id','id')->withDefault(['name' => '---']);
+    }
+
+
+    public function getAdvertises(){
+        return $this->hasMany(Advertise::class,'area_id','id');
+    }
 }

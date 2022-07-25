@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="rounded-lg shadow bg-white overflow-hidden">
-                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="bg-emerald-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             محله های فعال
                         </div>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="rounded-lg shadow bg-white overflow-hidden">
-                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="bg-red-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             محله های غیر فعال
                         </div>
@@ -124,13 +124,13 @@
 
                                 <td class="py-3 px-2">
                                     <span class=" text-gray-500 text-xs">
-                                        ---
+                                        {{$item->getCity->name}}
                                     </span>
                                 </td>
 
                                 <td class="py-3 px-2">
                                     <span class=" text-gray-500 text-xs">
-                                        ---
+                                        {{count($item->getAdvertises)}}
                                     </span>
                                 </td>
 

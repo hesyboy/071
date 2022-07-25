@@ -7,7 +7,7 @@
         <div class="grid grid-cols-3 gap-4 my-5">
 
 
-            <div class="rounded-lg shadow bg-white overflow-hidden">
+            <div class="rounded-lg shadow bg-white">
                 <div class="bg-gray-800 p-3 text-center text-white text-lg">
                      بازدید امروز
                      <div class="text-2xl text-center p-2 font-bold">
@@ -17,7 +17,7 @@
 
             </div>
 
-            <div class="rounded-lg shadow bg-white overflow-hidden">
+            <div class="rounded-lg shadow bg-white">
                 <div class="bg-gray-800 p-3 text-center text-white text-lg">
                      بازدید این ماه
                      <div class="text-2xl text-center p-2 font-bold">
@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="rounded-lg shadow bg-white overflow-hidden">
+            <div class="rounded-lg shadow bg-white">
                 <div class="bg-indigo-800 p-3 text-center text-white text-lg">
                      بازدید کل
                      <div class="text-2xl text-center p-2 font-bold">
@@ -45,7 +45,7 @@
         <div class="grid grid-cols-2 gap-4 my-5">
 
 
-            <div class="rounded-lg shadow bg-white overflow-hidden">
+            <div class="rounded-lg shadow bg-white">
                 <div class="bg-gray-800 p-3 text-center text-white text-lg">
                      درآمد امروز
                      <div class="text-2xl text-center p-2 font-bold">
@@ -55,7 +55,7 @@
 
             </div>
 
-            <div class="rounded-lg shadow bg-white overflow-hidden">
+            <div class="rounded-lg shadow bg-white">
                 <div class="bg-emerald-600 p-3 text-center text-white text-lg">
                      درآمد کل
                      <div class="text-2xl text-center p-2 font-bold">

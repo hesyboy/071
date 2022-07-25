@@ -5,8 +5,8 @@
                 <div>
                     <a class="" href="">
                         <div>
-                            <h2>071</h2>
-                            <span>Admin Panel</span>
+                            <h2 class="font-bold text-3xl">071</h2>
+                            <span class="font-bold text-xl">Admin Panel</span>
                         </div>
                     </a>
                 </div>
@@ -17,14 +17,10 @@
 
                         <li>
                             <div x-data="{open : false}">
-                                <div @click="open = true" class="flex gap-2 items-center rounded-lg shadow-xl p-2 text-firooze-200 border border-gray-200 cursor-pointer
-                                hover:text-white hover:bg-firooze-200 transition ease-in-out duration-150">
-                                        <i class="fas fa-user text-2xl"></i>
-                                        <div class="flex flex-col gap-1">
-                                            <div class="text-sm font-bold  ">
-                                                {{-- {{Auth()->user()->mobile}} --}}
-                                            </div>
-                                        </div>
+                                <div @click="open = true" class="flex gap-2 items-center rounded shadow-xl p-2 text-firooze-200 border border-gray-200 cursor-pointer
+                                hover:text-blue-600 hover:bg-firooze-200 transition ease-in-out duration-150">
+                                    <ion-icon name="person" class="text-3xl"></ion-icon>
+
                                 </div>
 
                                 <div x-show="open" x-transition @click.away="open = ! open" class="absolute z-10 top-15 left-0 bg-white p-3 rounded-lg shadow-lg mt-5 w-44">
@@ -33,6 +29,7 @@
                                                 <li>
                                                     <a class="flex items-center gap-3" href="{{route('admin.index')}}">
                                                         <i class="fas fa-house-user text-gray-600"></i>
+                                                        <ion-icon name="person"></ion-icon>
                                                         <span>پنل کاربری</span>
                                                     </a>
                                                 </li>
@@ -59,7 +56,7 @@
                         </li>
 
 
-                        <li>
+                        {{-- <li>
                             <div>
                                 <div class="flex items-center rounded-lg shadow-xl p-2 text-firooze-200 border border-gray-200">
                                         <i class="fas fa-bell text-2xl"></i>
@@ -74,7 +71,7 @@
                                     <i class="fas fa-plus text-2xl"></i>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>

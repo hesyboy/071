@@ -37,4 +37,12 @@ class AdvertiseCategory extends Model
             'title' => 'دسته اصلی'
         ]);
     }
+
+    public function getAdvertises(){
+        return $this->hasMany(Advertise::class,'category_id','id');
+    }
+
+    public function getFilters(){
+        return $this->hasMany(AdvertiseFilter::class,'category_id','id');
+    }
 }

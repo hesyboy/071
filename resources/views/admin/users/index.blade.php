@@ -9,7 +9,7 @@
 
 
             <div class="grid grid-cols-5 gap-4 mb-5">
-                <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="rounded-lg shadow bg-white">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کل کاربران
@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="rounded-lg shadow bg-white">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کاربران فعال
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-lg shadow bg-white overflow-hidden">
+                <div class="rounded-lg shadow bg-white">
                     <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             کاربران غیر فعال

@@ -33,16 +33,16 @@ class CreateAdvertisesTable extends Migration
 
             $table->foreignId('city_id')->constrained('cities')->cascadeOnDelete();
             $table->foreignId('area_id')->constrained('areas')->cascadeOnDelete();
-            $table->string('location');
+            $table->string('location')->nullable();;
 
-            $table->string('image');
+            $table->string('image')->default('/images/simple.jpg');
 
             $table->unsignedTinyInteger('show_type')->default(0)->comment('0=>normal,1=>fory');
 
             $table->unsignedTinyInteger('chat')->default(1)->comment('0=>deactive,1=>active');
             $table->unsignedTinyInteger('show_number')->default(1)->comment('0=>deactive,1=>active');
 
-            $table->unsignedTinyInteger('status')->default(1)->comment('0=>deactive,1=>pishnevis,2=>notshown,3=>active,4=>vije');
+            $table->unsignedTinyInteger('status')->default(2)->comment('0=>deactive,1=>pishnevis,2=>notshown,3=>active,4=>vije');
 
 
 

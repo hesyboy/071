@@ -3,7 +3,7 @@
     <head>
         @include('admin.layouts.headtag')
         @yield('headtag')
-        {{-- @livewireStyles --}}
+        @livewireStyles
     </head>
 
 
@@ -38,7 +38,7 @@
 {{-- scripts --}}
 @include('admin.layouts.script')
 @yield('script')
-{{-- @livewireScripts --}}
+@livewireScripts
  </html>
 
 

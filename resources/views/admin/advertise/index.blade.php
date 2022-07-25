@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="rounded-lg shadow bg-white overflow-hidden">
-                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="bg-emerald-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             آگهی های فعال
                         </div>
@@ -31,7 +31,18 @@
                 </div>
 
                 <div class="rounded-lg shadow bg-white overflow-hidden">
-                    <div class="bg-gray-800 p-2 text-center text-white flex gap-1 items-center justify-center">
+                    <div class="bg-orange-500 p-2 text-center text-white flex gap-1 items-center justify-center">
+                        <div class="text-sm">
+                            آگهی های در انتظار تایید
+                        </div>
+                    </div>
+                    <div class="text-2xl text-center p-2 font-bold">
+                        {{$Advertises->where('status',2)->count()}}
+                    </div>
+                </div>
+
+                <div class="rounded-lg shadow bg-white overflow-hidden">
+                    <div class="bg-red-800 p-2 text-center text-white flex gap-1 items-center justify-center">
                         <div class="text-sm">
                             آگهی های غیر فعال
                         </div>
@@ -114,7 +125,7 @@
 
                                 <td class="py-3 px-2">
                                     <div>
-                                        <img class=" h-12 w-12 rounded-lg" src="{{asset($item->icon)}}" alt="">
+                                        <img class=" h-12 w-12 rounded-lg" src="{{asset($item->image)}}" alt="">
                                     </div>
                                 </td>
 
@@ -126,16 +137,7 @@
 
                                 <td class="py-3 px-2">
                                     <span class="  text-gray-500 text-xs font-bold">
-                                        @if($item->getParent->title == "دسته اصلی")
-                                            {{$item->getParent->title}}
-                                        @elseif($item->getParent->getParent->title == "دسته اصلی")
-                                            {{$item->getParent->title}}
-                                        @elseif($item->getParent->getParent->getParent->title == "دسته اصلی")
-                                            {{$item->getParent->getParent->title}} / {{$item->getParent->title}}
-                                        @endif
-                                        {{-- {{$item->getParent->getParent->title}}
-                                        <hr>
-                                        {{$item->getParent->title}} --}}
+                                        {{number_format($item->price)}}
                                     </span>
                                 </td>
 
@@ -143,24 +145,39 @@
 
                                 <td class="py-3 px-2">
                                     <span class=" text-gray-500 text-xs">
-                                        ---
+                                        {{$item->getCategory->title}}
+                                    </span>
+                                </td>
+
+                                <td class="py-3 px-2">
+                                    <span class=" text-gray-500 text-xs">
+                                        {{$item->getUser->phone}}
                                     </span>
                                 </td>
 
 
-
                                 <td class="py-3 px-2">
 
-                                        @if($item->status==1)
-                                            <span class="bg-green-200 rounded px-2 text-green-600 text-xs">
-                                                فعال
-                                            </span>
+                                    @if($item->status==0)
+                                        <span class="bg-red-200 rounded px-2 text-red-600 text-xs">
+                                            غیر فعال
+                                        </span>
 
-                                        @else
-                                            <span class="bg-red-200 rounded px-2 text-red-600 text-xs">
-                                                غیر فعال
+                                    @elseif($item->status==1)
+                                        <span class="bg-green-200 rounded px-2 text-green-600 text-xs">
+                                                فعال
+                                        </span>
+                                    @elseif($item->status==2)
+                                            <span class="bg-orange-200 rounded px-2 text-orange-600 text-xs">
+                                                در انتظار تایید
                                             </span>
                                         @endif
+                                    </span>
+                                </td>
+
+                                <td class="py-3 px-2">
+                                    <span class=" text-gray-500 text-xs">
+                                        {{$item->created_at->diffForHumans()}}
                                     </span>
                                 </td>
 
@@ -168,7 +185,7 @@
                                     <div class="flex items-center">
 
                                         <div class="rounded-lg py-1 px-2 text-black text-sm">
-                                            <a href="{{route('admin.advertise.categories.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-orange-500 text-white rounded hover:bg-orange-600 ">مشاهده و تغییرات</a>
+                                            <a href="{{route('admin.advertise.edit',$item)}}" class=" text-xs text-center py-1 px-2 bg-orange-500 text-white rounded hover:bg-orange-600 ">مشاهده و تغییرات</a>
                                         </div>
 
 
@@ -190,7 +207,7 @@
                                                                 آیا از حذف مطمئن هستید؟
                                                             </div>
                                                             <div class="flex gap-5 p-3 justify-between">
-                                                                <form action="{{route('admin.advertise.categories.delete',$item)}}" method="post">
+                                                                <form action="{{route('admin.advertise.delete',$item)}}" method="post">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <a  @click="popup=false" class="cursor-pointer text-sm text-center py-2 px-4 bg-red-700 text-white rounded hover:bg-red-600 ">خیر</a>

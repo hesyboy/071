@@ -27,5 +27,13 @@ class City extends Model
         ];
     }
 
+    public function getAreas(){
+        return $this->hasMany(Area::class,'city_id','id');
+    }
+
+    public function getAdvertises(){
+        return $this->hasMany(Advertise::class,'city_id','id');
+    }
+
 
 }
